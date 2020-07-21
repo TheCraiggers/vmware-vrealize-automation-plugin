@@ -294,6 +294,8 @@ public class Request  {
 
         HttpResponse httpResponse = restclient.Post(url, template.toString());
         String responseAsJson = restclient.FormatResponseAsJsonString(httpResponse);
+        System.out.println("Response back from VRA: "+responseAsJson);
+        
         JsonObject response = restclient.FormJsonObject(responseAsJson);
         this.requestID = response.get("id").getAsString();
         return response;
